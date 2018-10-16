@@ -23,23 +23,23 @@ namespace DiseñoClaseContacto
 
 
 
-        public Contacto2(string nombre, string telefono, DateTime fechaNacimiento)
+        public Contacto2(string nombre, string telefono, DateTime fechaNacimiento,string type)
         {
             this.nombre = nombre;
             this.telefono = telefono;
             this.fechaNacimiento = fechaNacimiento;
+            this.type = type;
 
-            Console.WriteLine("Choose:");
-            Console.WriteLine("1 - family");
-            Console.WriteLine("2 - colleague");
-            Console.WriteLine("3 - uni mate");
-            int num1 = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Choose:");
+            //Console.WriteLine("1 - family");
+            //Console.WriteLine("2 - colleague");
+            //Console.WriteLine("3 - uni mate");
+            //int num1 = Convert.ToInt32(Console.ReadLine());
 
-            switch (num1)
+            switch (type)
             {
-                case 1:
-                    familyNumber++;
-                    Console.WriteLine("Family friends: " + familyNumber);
+                case "Amigos":
+                    friendNumber++;
                     break;
                 case 2:
                     colleagueNumber++;
@@ -167,11 +167,10 @@ namespace DiseñoClaseContacto
             {
                 result += this.GetFechaNacimiento();
             }
-            // to add type of friend
-            //if (this.type != "")
-            //{
-            //    result += this.
-            //}
+            if (this.type != "")
+            {
+                result += this.ObtenerNumContactos();
+            }
             return result;
         }
     }
