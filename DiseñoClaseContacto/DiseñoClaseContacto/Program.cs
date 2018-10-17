@@ -44,10 +44,19 @@ namespace DiseñoClaseContacto
 
             //CLASE CONTACTO 2
 
-            Contacto2 c1 = new Contacto2("Natalia", "11111", new DateTime (1996, 09, 4),"Amigos" );
-            Console.WriteLine(c1.ObtenerNumContactos());
-            Console.WriteLine(c1.MostrarDatos());
+            Contacto2 c1 = new Contacto2("Miren", "944123456", new DateTime (1990, 03, 6),"friend" );
+            Contacto2 c2 = new Contacto2("Jon", "931212123", "colleague");
+            Contacto2 c3 = new Contacto2("Ane", " ", new DateTime(1995, 05, 5), "family");
+            Contacto2 c4 = new Contacto2("Julen", "944123321", new DateTime(1992, 02, 12), "uni mate");
+            Contacto2 c5 = new Contacto2("Mikel"," " ,new DateTime(1997, 07, 7), "family");
 
+            
+            //Console.WriteLine(c1.ObtenerNumContactos());
+            Console.WriteLine(c1.MostrarDatos());
+            Console.WriteLine(c2.MostrarDatos());
+            Console.WriteLine(c3.MostrarDatos());
+            Console.WriteLine(c4.MostrarDatos());
+            Console.WriteLine(c5.MostrarDatos());
 
             Console.ReadLine();
         }

@@ -11,12 +11,12 @@ namespace DiseñoClaseContacto
         private string nombre, telefono;
         private DateTime fechaNacimiento;
         private string type;
-        static int count;
-        private int familyNumber = 0;
-        private int friendNumber = 0;
-        private int colleagueNumber = 0;
-        private int uniMateNumber = 0;
-        private int numberContact = 0;
+        private static int count;
+        private static int familyNumber = 0;
+        private static int friendNumber = 0;
+        private static int colleagueNumber = 0;
+        private static int uniMateNumber = 0;
+        private static int numberContact = 0;
 
 
 
@@ -30,22 +30,47 @@ namespace DiseñoClaseContacto
             this.fechaNacimiento = fechaNacimiento;
             this.type = type;
 
-            //Console.WriteLine("Choose:");
-            //Console.WriteLine("1 - family");
-            //Console.WriteLine("2 - colleague");
-            //Console.WriteLine("3 - uni mate");
-            //int num1 = Convert.ToInt32(Console.ReadLine());
-
             switch (type)
             {
-                case "Amigos":
-                    friendNumber++;
+                case "family":
+                    familyNumber++;
                     break;
-                case 2:
+                case "Colleague":
                     colleagueNumber++;
                     Console.WriteLine("Colleagues: " + colleagueNumber);
                     break;
-                case 3:
+                case "uni mate":
+                    uniMateNumber++;
+                    Console.WriteLine("Uni mates: " + uniMateNumber);
+
+                    break;
+                default:
+                    friendNumber++;
+                    Console.WriteLine("Just friend: " + friendNumber);
+                    break;
+
+            }
+            numberContact++;
+            Console.WriteLine("Total number of friends: " + numberContact);
+
+        }
+        public Contacto2(string nombre, string telefono, string type)
+        {
+            this.nombre = nombre;
+            this.telefono = telefono;
+            
+            this.type = type;
+
+            switch (type)
+            {
+                case "family":
+                    familyNumber++;
+                    break;
+                case "Colleague":
+                    colleagueNumber++;
+                    Console.WriteLine("Colleagues: " + colleagueNumber);
+                    break;
+                case "uni mate":
                     uniMateNumber++;
                     Console.WriteLine("Uni mates: " + uniMateNumber);
 
@@ -119,23 +144,23 @@ namespace DiseñoClaseContacto
         }
         public int ObtenerNumContactos()
         {
-            return this.numberContact;
+            return numberContact;
         }
         public int ObtenerNumFamiliares()
         {
-            return this.familyNumber;
+            return familyNumber;
         }
         public int ObtenerNumAmigos()
         {
-            return this.friendNumber;
+            return friendNumber;
         }
         public int ObtenerNumTrabajo()
         {
-            return this.colleagueNumber;
+            return colleagueNumber;
         }
         public int ObtenerNumEstudios()
         {
-            return this.uniMateNumber;
+            return uniMateNumber;
         }
         //Methods
         public int ObtenerEdad()
@@ -165,13 +190,16 @@ namespace DiseñoClaseContacto
             }
             if (this.GetFechaNacimiento() != new DateTime())
             {
-                result += this.GetFechaNacimiento();
+                result += this.GetFechaNacimiento() + " ";
             }
             if (this.type != "")
             {
-                result += this.ObtenerNumContactos();
+                result += this.ObtenerTipo();
+                
             }
+
             return result;
+            
         }
     }
 }

@@ -13,6 +13,8 @@ namespace DiseñoClaseContacto
 
         public int DevolverDia()
         {
+            //DateTime dt = Convert.ToDateTime(fechaNacimiento);
+
             return this.dia;
         }
         public int DevolverMes()
